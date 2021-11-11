@@ -1,11 +1,11 @@
 import React from 'react';
 
-const HeaderTop = () => {
+const Reviews = () => {
     return (
         <div>
-            
+            review here
         </div>
     );
 };
 
-export default HeaderTop;
+export default Reviews;

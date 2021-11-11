@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Container } from '@mui/material';
 import Banner from '../Banner/Banner';
 import Reviews from '../reviews/Reviews';
-import Products from '../Products/Products';
 import Upcoming from '../Upcoming/Upcoming';
 import NavbarTop from '../../sheared/navigation/NavbarTop';
 import Footer from '../../sheared/Footer/Footer';
+import Services from '../Products/Services';
 
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
         <Container>
             <NavbarTop></NavbarTop>
             <Banner></Banner>
-            <Products></Products>
+            <Services></Services>
             <Reviews></Reviews>
             <Upcoming></Upcoming>
             <Footer></Footer>

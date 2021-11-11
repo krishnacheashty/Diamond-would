@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 import logo from '../../../images/rings/undraw_authentication_fsn5.c228945f.png'
-import {  Alert, Button, Container, Grid, Typography } from '@mui/material';
+import {  Button, Container, Grid, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 const Register = () => {
@@ -22,8 +22,8 @@ const Register = () => {
     /* onSubmit function */
     const handleLogIn=(e)=>{
         if(loginData.password!==loginData.password1){
-            <Alert severity="error">password is not match — check it out!</Alert>
-            // alert('password is not match — check it out!')
+            
+             alert('password is not match — check it out!')
             e.preventDefault()
             
             return

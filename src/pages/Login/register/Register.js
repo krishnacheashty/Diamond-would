@@ -5,9 +5,11 @@ import TextField from '@mui/material/TextField';
 import logo from '../../../images/rings/undraw_authentication_fsn5.c228945f.png'
 import {  Button, Container, Grid, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
     const [loginData,setLoginData]=useState({})
+    const {registerUser}=useAuth()
 
     /* onblur function */
     const onBlurChange=e=>{
@@ -28,7 +30,9 @@ const Register = () => {
             
             return
         }
-        
+        registerUser(loginData.email,loginData.password)
+        alert('yoy are registered')
+        setLoginData({})
         e.preventDefault()
     }
 
@@ -91,7 +95,7 @@ const Register = () => {
                                     color:'#fff',
                                     background: 'linear-gradient(to right, #50c9c3, #96deda)',marginTop:'20px'
                                     }}
-                                    > Sign-in
+                                    > Register
                                 </Button>
                                 <br />
                                 <NavLink to='/login' style={{textDecoration:'none'}}>

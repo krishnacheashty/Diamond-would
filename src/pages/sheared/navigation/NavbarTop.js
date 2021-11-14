@@ -5,9 +5,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 
 const NavbarTop = () => {
+    const{user,logOut}=useAuth()
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -19,9 +21,16 @@ const NavbarTop = () => {
                 <NavLink to='/Explore' style={{textDecoration:'none',}}>
                     <Button color="inherit" sx={{color:'#fff'}}>Explore</Button>
                 </NavLink>
-                <NavLink to='/login' style={{textDecoration:'none',}}>
-                    <Button  sx={{color:'#fff'}}>login</Button>
+                {
+                    user?.email ?
+                    
+                    <Button onClick={logOut} color="inherit" sx={{color:'#fff'}}>Logout</Button>
+                
+                    :
+                    <NavLink to='/login' style={{textDecoration:'none',}}>
+                    <Button color="inherit" sx={{color:'#fff'}}>Login</Button>
                 </NavLink>
+                }
                 
                 </Toolbar>
             </AppBar>

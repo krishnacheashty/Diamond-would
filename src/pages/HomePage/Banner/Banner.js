@@ -1,16 +1,30 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 
-import { Container } from '@mui/material';
+
+import {  CardMedia, Container, Typography,Box } from '@mui/material';
+
 const Banner = () => {
     return (
         <Container>
             <Grid container spacing={2}>
-                <Grid item xs={6} md={8}>
-                    some contain here
+                <Grid item xs={12} md={6}>
+                    <Box sx={{marginTop:'40%'}}>
+                    <Typography variant='body2'>Individual</Typography>
+                    <Typography variant='h2'>Jewelry Design</Typography>
+                    <Typography variant='h6'>This beautiful galore of colours and patterns
+is designed by Schoff</Typography>
+                    </Box>
                 </Grid>
-                <Grid item xs={6} md={4}>
-                    picture here
+                <Grid item xs={12} md={6}>
+                    
+                    <CardMedia
+                                component="img"
+                                height="450"
+                                image='https://i.ibb.co/HKMfPbP/banner-left.jpg'
+                                alt="Paella dish"
+                    />
+                    
                 </Grid>
                 
             </Grid>

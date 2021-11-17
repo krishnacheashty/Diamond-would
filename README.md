@@ -1,14 +1,14 @@
 # Getting Started With My App
 
 
-This is my project liveSide [link](https://eye-care-center-a25de.web.app).
+This is my project liveSide [link]().
 
 
 ## DIAMOND-HOUSE
 
 In the project we try to show Diamond neckless related  things.
 
-### My Github Project [link](https://github.com/Programming-Hero-Web-Course3/healthcare-related-website-krishnacheashty)
+### My Github Project [link]()
 
 
 
@@ -23,6 +23,6 @@ In the project we try to show Diamond neckless related  things.
 
  -You Can Know Our Services.
 
- -You can review oue roducts as well.
+ -You can review oue review as well.
 
 

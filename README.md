@@ -4,7 +4,7 @@
 This is my project liveSide [link](https://eye-care-center-a25de.web.app).
 
 
-## EYE-CARE-CENTER
+## DIAMOND-HOUSE
 
 In the project we try to show Diamond neckless related  things.
 

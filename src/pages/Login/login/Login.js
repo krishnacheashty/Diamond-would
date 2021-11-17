@@ -1,23 +1,31 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import useAuth from '../../hooks/useAuth';
 
 import logo from '../../../images/rings/undraw_authentication_fsn5.c228945f.png'
-import { Button, Container, Grid, Typography } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { Alert, Button, CircularProgress, Container, Grid, Typography } from '@mui/material';
+import { NavLink,useLocation,useHistory } from 'react-router-dom';
 
 const Login = () => {
+    const{user,error,isLoading,loginUser,signInWthGoogle}=useAuth()
     const [loginData,setLoginData]=useState({});
+    const location=useLocation();
+    const history=useHistory()
 
     const handleLogIn=(e)=>{
-        alert('submitted')
+        loginUser(loginData.email,loginData.password,location,history)
         e.preventDefault();
     }
+    const handelGoogleSignin=(location,history)=>{
+        signInWthGoogle(location,history)
+    }
+
 
     const onBlurChange=(e)=>{
         const field=e.target.name;
         const value=e.target.value;
-        console.log(field,value);
+        // console.log(field,value);
         const newUser={...loginData};
         newUser[field]=value;
         setLoginData(newUser);
@@ -71,7 +79,22 @@ const Login = () => {
 
                                     </Button>
                                 </NavLink>
+
+
+                        {
+                            isLoading && <Box sx={{ display: 'flex',justifyContent:'center' }}>
+                            <CircularProgress />
+                          </Box>
+                        }
+                        {
+                            user?.email ? <Alert severity="success"> Successfully register <strong> — check it out!</strong></Alert>
+                            : ''
+                        }
+                        {
+                            error && <Alert severity="error">{error}</Alert>
+                        }
                         </form>
+                        <Button onClick={handelGoogleSignin} variant='contained' sx={{marginBottom:'10px'}} > Google sign in</Button>
                     </Box>
                 </Grid>
 

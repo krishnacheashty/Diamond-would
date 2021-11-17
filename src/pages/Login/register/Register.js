@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-
 import logo from '../../../images/rings/undraw_authentication_fsn5.c228945f.png'
 import {  Button, Container, Grid, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import CircularProgress from '@mui/material/CircularProgress';
+/* for alert */
+import Alert from '@mui/material/Alert';
+import { useHistory } from 'react-router-dom';
+
+
+
 
 const Register = () => {
     const [loginData,setLoginData]=useState({})
-    const {registerUser}=useAuth()
-
+    const {user,error,registerUser,isLoading}=useAuth()
+    const history=useHistory();
     /* onblur function */
     const onBlurChange=e=>{
 
@@ -30,9 +36,8 @@ const Register = () => {
             
             return
         }
-        registerUser(loginData.email,loginData.password)
-        alert('yoy are registered')
-        setLoginData({})
+        registerUser(loginData.email,loginData.password,loginData.name,history)
+        
         e.preventDefault()
     }
 
@@ -46,7 +51,7 @@ const Register = () => {
                         Register
                     </Typography>
                 <Box sx={{boxShadow:3,borderBottom: 1}}>
-                        <form
+                        {!isLoading && <form
                         onSubmit={handleLogIn}>
                             <TextField 
                                 sx={{width:'80%'}}
@@ -101,7 +106,18 @@ const Register = () => {
                                 <NavLink to='/login' style={{textDecoration:'none'}}>
                                     <Button>Already Resister ??</Button>
                                 </NavLink>
-                        </form>
+                        </form>}
+                        {
+                            isLoading && <Box sx={{ display: 'flex',justifyContent:'center' }}>
+                            <CircularProgress />
+                          </Box>
+                        }
+                        {
+                            user?.email &&  <Alert severity="success"> Successfully register <strong> — check it out!</strong></Alert>
+                        }
+                        {
+                            error && <Alert severity="error">{error}</Alert>
+                        }
                     </Box>
                 </Grid>
 

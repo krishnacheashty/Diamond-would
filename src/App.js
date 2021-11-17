@@ -11,6 +11,12 @@ import Login from './pages/Login/login/Login';
 import Register from './pages/Login/register/Register';
 import Parchage from './pages/HomePage/Products/parchage/Parchage';
 import AuthProvider from './pages/contaxt/AuthContext';
+import PrivateRoute from './pages/Login/privateRoute/PrivateRoute';
+
+import MyOrder from './pages/dashbord/myorder/MyOrder';
+import ManageAllOrder from './pages/dashbord/myorder/AllManageOrder/ManageAllOrder';
+import Dashboard from './pages/dashbord/Dashboard';
+import Explore from './pages/explore/Explore';
 
 function App() {
   return (
@@ -31,9 +37,22 @@ function App() {
               <Route  path='/register'>
                   <Register></Register>
               </Route>
-              <Route  path='/parchage'>
-                  <Parchage></Parchage>{/* private route hobe */}
+              <PrivateRoute  path='/dashboard'>
+                  <Dashboard/>
+              </PrivateRoute>
+              <Route  path='/myOrder'>
+                  <MyOrder/>
               </Route>
+              <Route  path='/manageAllOrder'>
+                  <ManageAllOrder/>
+              </Route>
+              <PrivateRoute  path='/parchage/:serviceId'>
+                <Parchage></Parchage>{/* private route hobe */}
+              </PrivateRoute>
+              <Route path='/explore'>
+                <Explore/>
+              </Route>
+              
             </Switch>
           </Router>
         </AuthProvider>

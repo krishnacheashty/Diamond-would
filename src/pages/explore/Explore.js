@@ -9,11 +9,12 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import { Link } from 'react-router-dom';
+import NavbarTop from '../sheared/navigation/NavbarTop';
 
 
 
 
-const Services = () => {
+const Explore = () => {
     const[product,setProduct]=useState([])
     const [expanded, setExpanded] = React.useState(false);
 
@@ -36,13 +37,14 @@ const Services = () => {
 
     return (
         <Container>
+            <NavbarTop/>
             <Typography variant="h3" color="text.dark">
                 products
             </Typography>
             <Grid item={true} container rowSpacing={1} columnSpacing={{ xs: 1, md: 3 }}>
                         
                 {
-                    product.slice(0,6).map(product=><Grid item xs={12} md={4} key={product.index}>
+                    product.map(product=><Grid item xs={12} md={4} key={product.index}>
                         <Card sx={{marginTop:'10%'}}>
                             <CardMedia
                                 component="img"
@@ -87,4 +89,4 @@ const Services = () => {
     );
 };
 
-export default Services;
+export default Explore;

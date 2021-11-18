@@ -17,6 +17,7 @@ import MyOrder from './pages/dashbord/myorder/MyOrder';
 import ManageAllOrder from './pages/dashbord/myorder/AllManageOrder/ManageAllOrder';
 import Dashboard from './pages/dashbord/Dashboard';
 import Explore from './pages/explore/Explore';
+import PageNotFound from './pages/pagenotfound/PageNotFound';
 
 function App() {
   return (
@@ -49,9 +50,13 @@ function App() {
               <PrivateRoute  path='/parchage/:serviceId'>
                 <Parchage></Parchage>{/* private route hobe */}
               </PrivateRoute>
-              <Route path='/explore'>
+              <PrivateRoute path='/explore'>
                 <Explore/>
+              </PrivateRoute>
+              <Route path='*'>
+                <PageNotFound/>
               </Route>
+
               
             </Switch>
           </Router>

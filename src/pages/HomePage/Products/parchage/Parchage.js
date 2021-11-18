@@ -18,7 +18,7 @@ const Parchage = () => {
     const[service,setService]=useState({})
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/products/${serviceId}`)
+        fetch(`https://shrouded-crag-83318.herokuapp.com/products/${serviceId}`)
         .then(res=>res.json())
         .then(data=>{
             // console.log(data);
@@ -43,7 +43,7 @@ const Parchage = () => {
             rating:service.rating
 
         }
-        axios.post('http://localhost:5000/order',orderBooking)
+        axios.post('https://shrouded-crag-83318.herokuapp.com/order',orderBooking)
         .then(data=>{
             if(data){
                 alert("Do you want to add that service?")

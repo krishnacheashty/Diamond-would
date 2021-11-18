@@ -24,7 +24,7 @@ const Services = () => {
         };
 
         useEffect(()=>{
-            fetch('http://localhost:5000/products')
+            fetch('https://shrouded-crag-83318.herokuapp.com/products')
             .then(res=>res.json())
             .then(data=>{
             //  

@@ -28,7 +28,7 @@ const Review = () => {
 
         }
         console.log(review)
-        axios.post('http://localhost:5000/review',review)
+        axios.post('https://shrouded-crag-83318.herokuapp.com/review',review)
         .then(data=>{
             if(data){
                 alert("Do you want to add that service?")

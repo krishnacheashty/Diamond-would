@@ -110,7 +110,7 @@ const useFirebase=()=>{
     }
     const saveUser=(email,displayName)=>{
       const user={email,displayName}
-      fetch('http://localhost:5000/users',{
+      fetch('https://shrouded-crag-83318.herokuapp.com/users',{
         method:'POST',
         headers:{
           'contain-type':'application/json'

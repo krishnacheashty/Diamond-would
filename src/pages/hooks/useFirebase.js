@@ -13,6 +13,8 @@ const useFirebase=()=>{
  
 
   const googleProvider = new GoogleAuthProvider();
+
+
   const auth = getAuth();
 /* register */
     const registerUser=(email,password,name,history)=>{
@@ -49,9 +51,9 @@ const useFirebase=()=>{
     signInWithPopup(auth, googleProvider)
   .then((result) => {
     
-    setError('')
     const destination=location?.state?.from || '/'   
     history.replace(destination)
+    setError('')
   }).catch((error) => {
     const errorMessage = error.message;
     setError(errorMessage)
@@ -82,10 +84,11 @@ const useFirebase=()=>{
         signInWithEmailAndPassword(auth, email, password)
   .then((user) => {
     /* kaz korche na */
-    
     setError('');
-    const destination=location?.state?.from || '/'   
+    
+    const destination=location?.state?.from || '/'   ;
     history.replace(destination)
+    
   })
   .catch((error) => {
     const errorMessage = error.message;

@@ -6,6 +6,7 @@ import useAuth from '../../hooks/useAuth';
 import logo from '../../../images/rings/undraw_authentication_fsn5.c228945f.png'
 import { Alert, Button, CircularProgress, Container, Grid, Typography } from '@mui/material';
 import { NavLink,useLocation,useHistory } from 'react-router-dom';
+import NavbarTop from '../../sheared/navigation/NavbarTop';
 
 const Login = () => {
     const{user,error,isLoading,loginUser,signInWthGoogle}=useAuth()
@@ -17,7 +18,7 @@ const Login = () => {
         loginUser(loginData.email,loginData.password,location,history)
         e.preventDefault();
     }
-    const handelGoogleSignin=(location,history)=>{
+    const handelGoogleSignIn=(location,history)=>{
         signInWthGoogle(location,history)
     }
 
@@ -35,6 +36,7 @@ const Login = () => {
 
     return (
         <Container>
+            <NavbarTop/>
             <Grid container spacing={2}>
                 <Grid item={true} xs={6} md={6} sx={{marginTop:'12%'}}>
                     <Typography variant='body1'>
@@ -87,14 +89,14 @@ const Login = () => {
                           </Box>
                         }
                         {
-                            user?.email ? <Alert severity="success"> Successfully register <strong> — check it out!</strong></Alert>
+                            user?.email ? <Alert severity="success"> Successfully login <strong> — check it out!</strong></Alert>
                             : ''
                         }
                         {
                             error && <Alert severity="error">{error}</Alert>
                         }
                         </form>
-                        <Button onClick={handelGoogleSignin} variant='contained' sx={{marginBottom:'10px'}} > Google sign in</Button>
+                        <Button onClick={handelGoogleSignIn} variant='contained' sx={{marginBottom:'10px'}} > Google sign in</Button>
                     </Box>
                 </Grid>
 

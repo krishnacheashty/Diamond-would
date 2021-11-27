@@ -1,6 +1,7 @@
-import { Card, CardContent, Container, Grid, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia,  Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Rating from '@mui/material/Rating';
+import { Box } from '@mui/system';
 
 const Reviews = () => {
      const[review,setReview]=useState([]) 
@@ -13,32 +14,41 @@ const Reviews = () => {
     },[])
     console.log(review)
     return (
-        <Container>
-            <Typography variant="h4" color="text.dark" sx={{marginTop:'20px'}}>
+        <Box sx={{backgroundColor:'#f9f9f9',}}>
+            <Typography variant="h4" color="text.dark" sx={{marginTop:"30px"}}>
                 Review
             </Typography>
+            <Box sx={{width:'150px',marginLeft:'42.5%',mb:3}}>
+            <CardMedia
+                component="img"
+                width='100px'
+                height="20px"
+                image="https://i.ibb.co/VpWGDyg/divider1.png"
+                alt="Paella dish"
+            />
+            </Box>
             <Grid item={true} container rowSpacing={1} columnSpacing={{ xs: 1, md: 3 }}>
                         
                 {
                     review.map(product=><Grid item xs={12} md={4} key={product._id}>
-                        <Card sx={{marginTop:'10%' ,backgroundColor:'rgba(0 0 0 .4)'}}>
+                        <Card sx={{marginTop:'10%' ,backgroundColor:'#535b5ecc',marginBottom:"20px",hight:"250px"}}>
                             
                             
-                            <CardContent>
-                                <Typography variant="body2" color="text.secondary">
-                               userName : {product?.userName}
+                            <CardContent sx={{color:'#d2aa5c'}}>
+                                <Typography variant="body2" >
+                               <span >User Name</span>: {product?.userName}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                               Product Name : {product?.product}
+                                <Typography variant="body2">
+                                <span>Product Name</span>: {product?.product}
                                 </Typography>
                             </CardContent>
                             
                             <CardContent>
                                 
                             <Typography paragraph>
-                                description :    {product?.description}
-                                </Typography>
-                             Rating :   <Rating name="read-only" value={product?.rating} readOnly />
+                                Review Description :   { product?.description?.slice(0,80)}...
+                                </Typography >
+                            <Typography mt="3">Rating :<Box><Rating  name="read-only" value={product?.rating} readOnly /></Box> </Typography>  
                             </CardContent>
                             
                         </Card>
@@ -46,7 +56,7 @@ const Reviews = () => {
                 }
             </Grid>
             
-        </Container>
+        </Box>
     );
 };
 

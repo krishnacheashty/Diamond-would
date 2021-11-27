@@ -8,12 +8,14 @@ import Footer from '../../sheared/Footer/Footer';
 import Services from '../Products/Services';
 
 
+
 const Home = () => {
     return (
         <Container>
             <NavbarTop></NavbarTop>
             <Banner></Banner>
             <Services></Services>
+            
             <Reviews></Reviews>
             <Upcoming></Upcoming>
             <Footer></Footer>

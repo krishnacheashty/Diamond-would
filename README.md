@@ -17,13 +17,15 @@ In the project we try to show Diamond neckless related  things.
 
  ### SOME POINTS 
 
- -You Can Order Diamond set.
+ -Built Firebase Authentication system with email, password, and google login for users and admin. 
 
  -Read Blog About Neckless set.
 
- -You Can Know Our Services.
+ -Existence Users can order products. Those orders are consistent on the MY-ORDER page at Dashboard. Have the option to review products too.
 
- -You can review oue review as well.
+ -Admin can make admin, add new products, cancel orders from MANAGE ALL ORDER page .
+
+ -You can review our review as well.
 
  
 

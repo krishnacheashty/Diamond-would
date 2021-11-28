@@ -46,7 +46,7 @@ const Reviews = () => {
                             <CardContent>
                                 
                             <Typography paragraph>
-                                Review Description :   { product?.description?.slice(0,80)}...
+                                Review Description :   { product?.description?.slice(0,80)}
                                 </Typography >
                             <Typography mt="3">Rating :<Box><Rating  name="read-only" value={product?.rating} readOnly /></Box> </Typography>  
                             </CardContent>

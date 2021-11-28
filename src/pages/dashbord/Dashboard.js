@@ -34,6 +34,7 @@ function Dashboard(props) {
   let { path, url } = useRouteMatch();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const{admin}=useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -56,19 +57,22 @@ function Dashboard(props) {
       <Link to={`${url}/pay`}><Button color='inherit'>pay</Button></Link>
       
       {/* admin */}
-      <Divider />
-      <Link to={`${url}/addAdmin`} sx={{textDecoration:'none'}}><Button color='inherit'> Add Admin</Button></Link>
-      <Divider />
-      
-      <Divider />
-      <Link to={`${url}/manageAllOrder`} sx={{textDecoration:'none'}}> <Button color='inherit'>Manage All Order</Button></Link>
-      
-      <Divider />
-      <Link to={`${url}/AddAProduct`} sx={{textDecoration:'none'}}> <Button color='inherit'>Add A Product</Button></Link>
-      <Divider />
-      <Link to={`${url}/ManageProduct`} sx={{textDecoration:'none'}}> <Button color='inherit'>Manage Product</Button></Link>
+      { admin && <Box>
+          <Divider />
+            <Link to={`${url}/addAdmin`} sx={{textDecoration:'none'}}><Button color='inherit'> Add Admin</Button></Link>
+            <Divider />
+            
+            <Divider />
+            <Link to={`${url}/manageAllOrder`} sx={{textDecoration:'none'}}> <Button color='inherit'>Manage All Order</Button></Link>
+            
+            <Divider />
+            <Link to={`${url}/AddAProduct`} sx={{textDecoration:'none'}}> <Button color='inherit'>Add A Product</Button></Link>
+            <Divider />
+            <Link to={`${url}/ManageProduct`} sx={{textDecoration:'none'}}> <Button color='inherit'>Manage Product</Button></Link>
+            
+          <Divider />
+        </Box>}
       </List>
-      <Divider />
       
     </div>
   );

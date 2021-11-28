@@ -10,6 +10,7 @@ const useFirebase=()=>{
   const[user,setUser]=useState({});
   const[error,setError]=useState('');
   const [isLoading,setIsLoading]=useState(true);
+  const [admin,setAdmin]=useState(false);
  
 
   const googleProvider = new GoogleAuthProvider();
@@ -79,6 +80,15 @@ const useFirebase=()=>{
             return()=>unsubscribe
     },[auth])
 
+    /* set admin info backend */
+    useEffect(()=>{
+      fetch(`https://shrouded-crag-83318.herokuapp.com/users/${user.email}`)
+        .then(res=>res.json())
+        .then(data=>{
+          setAdmin(data.admin)
+        })
+    },[user.email])
+
 
     // login 
     const loginUser=(email,password,history,location)=>{
@@ -115,7 +125,7 @@ const useFirebase=()=>{
     }
     const saveUser=(email,displayName,method)=>{
       const user={email,displayName}
-      fetch('http://localhost:5000/users',{
+      fetch('https://shrouded-crag-83318.herokuapp.com/users',{
         method:method,
         headers:{
           'content-type':'application/json'
@@ -128,6 +138,7 @@ const useFirebase=()=>{
     }
     return{
         user,
+        admin,
         isLoading,
         error,
         registerUser,

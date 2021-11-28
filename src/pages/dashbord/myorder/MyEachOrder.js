@@ -6,7 +6,7 @@ const MyEachOrder = ({order,handelDelete}) => {
     return (
         <>
           <Grid item xs={12} md={4} >
-                <Card sx={{ maxWidth: 345 }}>
+                <Card sx={{ maxWidth: 345,backgroundColor:'#e3e7eb' }}>
       
                 <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
@@ -29,7 +29,7 @@ const MyEachOrder = ({order,handelDelete}) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button onClick={()=>handelDelete(_id)} size="small">Delete</Button>
+                    <Button onClick={()=>handelDelete(_id)} size="small" sx={{background:'#d2aa5c',color:'#000'}}>Delete</Button>
                 
                 </CardActions>
                 </Card>

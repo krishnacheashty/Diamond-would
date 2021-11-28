@@ -1,37 +1,52 @@
-import { Button, TextField } from '@mui/material';
+import { Alert, Button, TextField } from '@mui/material';
 import { Box } from '@mui/system';
-import axios from 'axios';
 import React, { useState } from 'react';
 
 const AddAdmin = () => {
-    const [loginData,setLoginData]=useState({})
-    const onBlurChange=e=>{
 
-        const field=e.target.name;
-        const value=e.target.value;
-        console.log(field,value)
-        const newUserInfo={...loginData}
-        newUserInfo[field]=value;
-        setLoginData(newUserInfo)
-        }
-        /* onSubmit function */
-        const handleLogIn=(e)=>{
-             axios.post('https://shrouded-crag-83318.herokuapp.com/users')
-        .then(result=>{
-            if(result){
-                alert("you are successfully add Admin")
+    const [email,setEmail]=useState('');
+    const [success,setSuccess]=useState(false)
+
+    /* set field value at email */
+    const onBlurChange=e=>{
+        setEmail(e.target.value)
+    }
+
+
+        /* onSubmit client site admin */
+        const handleAddAdmin=(e)=>{
+            const user={email}
+            fetch('http://localhost:5000/users/admin',{
+                method:'PUT',
+                headers:{
+                  'content-type':'application/json'
+                },
+                body:JSON.stringify(user)
+                
+                
+              })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.modifiedCount){
+                setSuccess(true)
+                console.log(data)
+                setEmail('')
             }
+           
             
         })
             e.preventDefault()
         }
+
+
+
     return (
-        <Box>
+        <Box sx={{backgroundColor:'#eae0d4',height:'90vh'}}>
             <form
-                onSubmit={handleLogIn}>
+                onSubmit={handleAddAdmin} >
                
                 <TextField 
-                    sx={{width:'80%'}}
+                    sx={{width:'80%',marginTop:'25%'}}
                     id="standard-email-input"
                     label="email"
                     name='email'
@@ -46,7 +61,7 @@ const AddAdmin = () => {
                         type='submit'
                         sx={{
                         width:'60%',
-                        color:'#fff',
+                        color:'#000',
                         background: 'linear-gradient(to right, #50c9c3, #96deda)',marginTop:'20px'
                         }}
                         > Make Admin
@@ -54,6 +69,7 @@ const AddAdmin = () => {
                   
                     
             </form>
+            {success && <Alert sx={{mx:'auto',width:'250px',marginTop:'20px'}}>Add Admin Successfully.</Alert>}
         </Box>
     );
 };

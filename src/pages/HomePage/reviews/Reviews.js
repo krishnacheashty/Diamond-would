@@ -12,7 +12,7 @@ const Reviews = () => {
             setReview(data)
         })
     },[])
-    console.log(review)
+    /* console.log(review) */
     return (
         <Box sx={{backgroundColor:'#f9f9f9',}}>
             <Typography variant="h4" color="text.dark" sx={{marginTop:"30px"}}>

@@ -26,7 +26,7 @@ const useFirebase=()=>{
           setUser(newUser)
           
           /* save user to data base */
-          saveUser(email,name)
+          saveUser(email,name,'POST')
           // sand name to fire base
           updateProfile(auth.currentUser, {
             displayName: name
@@ -50,7 +50,9 @@ const useFirebase=()=>{
     setIsLoading(true)
     signInWithPopup(auth, googleProvider)
   .then((result) => {
+    const user=result.user;
     
+    saveUser(user.email,user.displayName,'PUT')
     const destination=location?.state?.from || '/'   
     history.replace(destination)
     setError('')
@@ -111,12 +113,12 @@ const useFirebase=()=>{
           })
           .finally(()=>setIsLoading(false));
     }
-    const saveUser=(email,displayName)=>{
+    const saveUser=(email,displayName,method)=>{
       const user={email,displayName}
-      fetch('https://shrouded-crag-83318.herokuapp.com/users',{
-        method:'POST',
+      fetch('http://localhost:5000/users',{
+        method:method,
         headers:{
-          'contain-type':'application/json'
+          'content-type':'application/json'
         },
         body:JSON.stringify(user)
         

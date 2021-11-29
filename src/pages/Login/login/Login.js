@@ -44,7 +44,7 @@ const Login = () => {
                     </Typography>
                 <Box sx={{boxShadow:3,borderBottom: 1}}>
                         <form
-                        onSubmit={()=>handleLogIn(location,history)}>
+                        onSubmit={handleLogIn}>
                             <TextField 
                                 sx={{width:'80%'}}
                                 id="standard-email-input"

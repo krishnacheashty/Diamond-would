@@ -2,7 +2,7 @@ import { Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/m
 import React from 'react';
 
 const MyEachOrder = ({order,handelDelete}) => {
-    const {productName,email,price,phone,userName,address,name,_id}=order
+    const {productName,email,price,phone,userName,address,name,_id,status}=order
     return (
         <>
           <Grid item xs={12} md={4} >
@@ -26,6 +26,9 @@ const MyEachOrder = ({order,handelDelete}) => {
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                     address :{address}
+                    </Typography>
+                    <Typography variant="body2" color="text.danger">
+                    <span style={{color:'blue'}}> status </span> :{status}
                     </Typography>
                 </CardContent>
                 <CardActions>

@@ -13,11 +13,6 @@ import { Box } from '@mui/system';
 const Services = () => {
     const[product,setProduct]=useState([])
    
-
-    
-
-        
-
         useEffect(()=>{
             fetch('https://shrouded-crag-83318.herokuapp.com/products')
             .then(res=>res.json())

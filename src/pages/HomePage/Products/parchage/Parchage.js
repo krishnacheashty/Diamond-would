@@ -41,7 +41,8 @@ const Parchage = () => {
             ...orderinfo,
             productName:service.name,
             price:service.price,
-            rating:service.rating
+            rating:service.rating,
+            status:'pending'
 
         }
         axios.post('https://shrouded-crag-83318.herokuapp.com/order',orderBooking)
@@ -57,7 +58,7 @@ const Parchage = () => {
         })
 
         e.preventDefault()
-
+        
         /* post method */
         
             

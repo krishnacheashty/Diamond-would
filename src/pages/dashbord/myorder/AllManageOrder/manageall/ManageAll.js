@@ -2,8 +2,22 @@ import { Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/m
 import React from 'react';
 
 const ManageAll = ({order,handelDelete}) => {
-     const{price,productName,userName,email,phone,address,_id}=order
-    
+     const{price,productName,userName,email,phone,address,_id,status}=order
+    /* update handler */
+    const handelUpdate=(id)=>{
+      fetch(`http://localhost:5000/order/${id}`,{
+         method:'PUT',
+         headers:{
+         'content-type':'application/json'
+         }
+      })
+      .then(res=>res.json())
+      .then(data=>{
+            console.log(data)     
+      })
+    }
+
+
     return (
         <>
         <Grid item xs={12} md={4}>
@@ -15,6 +29,9 @@ const ManageAll = ({order,handelDelete}) => {
         </Typography>
         <Typography gutterBottom variant="h6" component="div">
            userName :{userName}
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+           status :{status}
         </Typography>
         <Typography gutterBottom variant="p" component="div">
            email :{email}
@@ -31,6 +48,7 @@ const ManageAll = ({order,handelDelete}) => {
       </CardContent>
       <CardActions>
         <Button onClick={()=>handelDelete(_id)} size="small" sx={{background:'#d2aa5c',color:'#000'}}>Delete</Button>
+        <Button onClick={()=>handelUpdate(_id)} size="small" sx={{background:'#d2aa5c',color:'#000'}}>Update</Button>
        
       </CardActions>
     </Card>

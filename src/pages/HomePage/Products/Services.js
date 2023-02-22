@@ -14,7 +14,7 @@ const Services = () => {
     const[product,setProduct]=useState([])
    
         useEffect(()=>{
-            fetch('https://shrouded-crag-83318.herokuapp.com/products')
+            fetch('https://diamond-would-server-side.onrender.com/products')
             .then(res=>res.json())
             .then(data=>{
             //  

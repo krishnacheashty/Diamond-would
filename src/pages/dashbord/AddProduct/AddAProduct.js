@@ -17,7 +17,7 @@ const AddAProduct = () => {
         }
         /* onSubmit function */
         const handleLogIn=(e)=>{
-            axios.post('https://shrouded-crag-83318.herokuapp.com/products')
+            axios.post('https://diamond-would-server-side.onrender.com/products')
         .then(result=>{
             if(result){
                 alert("you are successfully add you event")

@@ -9,8 +9,11 @@ import NavbarTop from '../../../sheared/navigation/NavbarTop';
 
 
 const Parchage = () => {
+    // user er information newa hoyeche useAuth hook theke.
     const{user}=useAuth()
-    const{serviceId}=useParams()
+    // serviceId ke neya hoi useParam () theke
+    const{serviceId}=useParams() 
+    // eck ta object create kora hoyeche ja ke orderinfo te store kora hoyeche
     const initialInfo={userName:user.displayName,email:user.email,phone:'',address:'',}
     const [orderinfo,setOrderinfo]=useState(initialInfo)
 

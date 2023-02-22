@@ -19,6 +19,7 @@ const Services = () => {
             .then(data=>{
             //  
                 setProduct(data)
+                
             })
         },[])
     

@@ -16,10 +16,10 @@ const Review = () => {
         const newUser={...orderInfo}
         newUser[field]=value
         setOrderInfo(newUser)
-        console.log(newUser)
+        // console.log(newUser)
     }
     
-     const fromHandler=(e)=>{
+    const fromHandler=(e)=>{
         const review={
             ...orderInfo,
             userName:user.displayName,

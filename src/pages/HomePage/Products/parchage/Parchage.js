@@ -4,6 +4,7 @@ import axios  from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
+import NavbarTop from '../../../sheared/navigation/NavbarTop';
 
 
 
@@ -63,6 +64,8 @@ const Parchage = () => {
        
      }
     return (
+        <>
+        <NavbarTop/>
         <Box>
             Product You Selected
             
@@ -180,6 +183,7 @@ const Parchage = () => {
 
             </form>
         </Box>
+        </>
     );
 };
 

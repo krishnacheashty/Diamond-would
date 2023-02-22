@@ -10,7 +10,11 @@ const useFirebase=()=>{
   const[user,setUser]=useState({});
   const[error,setError]=useState('');
   const [isLoading,setIsLoading]=useState(true);
+<<<<<<< HEAD
   const[everyUser,setEveryUser]=useState({})
+=======
+  const [admin,setAdmin]=useState(false);
+>>>>>>> 3e971609553fa533d4df3f346ae0db3ca75def0c
  
 
   const googleProvider = new GoogleAuthProvider();
@@ -28,7 +32,11 @@ const useFirebase=()=>{
           
           history.replace('/');
           /* save user to data base */
+<<<<<<< HEAD
           saveUser(email, name)
+=======
+          saveUser(email,name,'POST')
+>>>>>>> 3e971609553fa533d4df3f346ae0db3ca75def0c
           // sand name to fire base
           updateProfile(auth.currentUser, {
             displayName: name
@@ -51,8 +59,14 @@ const useFirebase=()=>{
     setIsLoading(true)
     signInWithPopup(auth, googleProvider)
   .then((result) => {
+<<<<<<< HEAD
     const user = result.user;
     saveUser(user.email, user.displayName);
+=======
+    const user=result.user;
+    
+    saveUser(user.email,user.displayName,'PUT')
+>>>>>>> 3e971609553fa533d4df3f346ae0db3ca75def0c
     const destination=location?.state?.from || '/'   
     history.replace(destination)
     setError('')
@@ -78,6 +92,15 @@ const useFirebase=()=>{
             });
             return()=>unsubscribe
     },[auth])
+
+    /* set admin info backend */
+    useEffect(()=>{
+      fetch(`https://shrouded-crag-83318.herokuapp.com/users/${user.email}`)
+        .then(res=>res.json())
+        .then(data=>{
+          setAdmin(data.admin)
+        })
+    },[user.email])
 
 
     // login 
@@ -113,11 +136,16 @@ const useFirebase=()=>{
           })
           .finally(()=>setIsLoading(false));
     }
-    const saveUser=(email,displayName)=>{
+    const saveUser=(email,displayName,method)=>{
       const user={email,displayName}
+<<<<<<< HEAD
       console.log(user);
       fetch('https://diamond-would-server-side.onrender.com/users',{
         method:'POST',
+=======
+      fetch('https://shrouded-crag-83318.herokuapp.com/users',{
+        method:method,
+>>>>>>> 3e971609553fa533d4df3f346ae0db3ca75def0c
         headers:{
           'content-type':'application/json'
         },
@@ -129,6 +157,7 @@ const useFirebase=()=>{
     }
     return{
         user,
+        admin,
         isLoading,
         error,
         registerUser,

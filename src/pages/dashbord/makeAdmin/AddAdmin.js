@@ -16,7 +16,7 @@ const AddAdmin = () => {
         }
         /* onSubmit function */
         const handleLogIn=(e)=>{
-             axios.post('https://shrouded-crag-83318.herokuapp.com/users')
+             axios.post('https://diamond-would-server-side.onrender.com/users')
         .then(result=>{
             if(result){
                 alert("you are successfully add Admin")

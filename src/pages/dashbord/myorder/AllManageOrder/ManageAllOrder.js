@@ -13,7 +13,7 @@ const ManageAllOrder = () => {
     const[order,setOrder]=useState([])
 
     useEffect(()=>{
-        fetch('https://shrouded-crag-83318.herokuapp.com/order')
+        fetch('https://diamond-would-server-side.onrender.com/order')
         .then(res=>res.json())
         .then(data =>{
             /* just amer oder dekhabe and if email diye filter na kore jodi setevents e data diye kortam then mannage all er kaz ta korto. */
@@ -23,7 +23,7 @@ const ManageAllOrder = () => {
         })
     },[])
     const handelDelete=(id)=>{
-        fetch(`https://shrouded-crag-83318.herokuapp.com/order/${id}`,
+        fetch(`https://diamond-would-server-side.onrender.com/order/${id}`,
         {method:"DELETE"
     })
     .then(res=>res.json())

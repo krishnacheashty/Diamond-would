@@ -18,7 +18,7 @@ const Parchage = () => {
     const[service,setService]=useState({})
 
     useEffect(()=>{
-        fetch(`https://shrouded-crag-83318.herokuapp.com/products/${serviceId}`)
+        fetch(`https://diamond-would-server-side.onrender.com/products/${serviceId}`)
         .then(res=>res.json())
         .then(data=>{
             // console.log(data);
@@ -43,7 +43,7 @@ const Parchage = () => {
             rating:service.rating
 
         }
-        axios.post('https://shrouded-crag-83318.herokuapp.com/order',orderBooking)
+        axios.post('https://diamond-would-server-side.onrender.com/order',orderBooking)
         .then(data=>{
             if(data){
                 alert("Do you want to add that service?")

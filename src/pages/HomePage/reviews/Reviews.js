@@ -5,7 +5,7 @@ import Rating from '@mui/material/Rating';
 const Reviews = () => {
      const[review,setReview]=useState([]) 
     useEffect(()=>{
-        fetch('https://shrouded-crag-83318.herokuapp.com/review')
+        fetch('https://diamond-would-server-side.onrender.com/review')
         .then(res=>res.json())
         .then(data=>{
             setReview(data)

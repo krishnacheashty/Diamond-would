@@ -28,7 +28,7 @@ const Review = () => {
 
         }
         console.log(review)
-        axios.post('https://shrouded-crag-83318.herokuapp.com/review',review)
+        axios.post('https://diamond-would-server-side.onrender.com/review',review)
         .then(data=>{
             if(data){
                 alert("Do you want to add that service?")

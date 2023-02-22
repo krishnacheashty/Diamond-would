@@ -10,6 +10,7 @@ const useFirebase=()=>{
   const[user,setUser]=useState({});
   const[error,setError]=useState('');
   const [isLoading,setIsLoading]=useState(true);
+  const[everyUser,setEveryUser]=useState({})
  
 
   const googleProvider = new GoogleAuthProvider();
@@ -25,8 +26,9 @@ const useFirebase=()=>{
           const newUser={email, displayName: name}
           setUser(newUser)
           
+          history.replace('/');
           /* save user to data base */
-          saveUser(email,name)
+          saveUser(email, name)
           // sand name to fire base
           updateProfile(auth.currentUser, {
             displayName: name
@@ -35,7 +37,6 @@ const useFirebase=()=>{
           }).catch((error) => {
             
           });
-            history.replace('/');
         })
         .catch((error) => {
             const errorMessage = error.message;
@@ -50,7 +51,8 @@ const useFirebase=()=>{
     setIsLoading(true)
     signInWithPopup(auth, googleProvider)
   .then((result) => {
-    
+    const user = result.user;
+    saveUser(user.email, user.displayName);
     const destination=location?.state?.from || '/'   
     history.replace(destination)
     setError('')
@@ -63,7 +65,7 @@ const useFirebase=()=>{
     
 
 
-    // user login or not to find
+     // user login or not to find
     useEffect(()=>{
        const unsubscribe= onAuthStateChanged(auth,(user)=>{
             if (user) {
@@ -79,7 +81,7 @@ const useFirebase=()=>{
 
 
     // login 
-    const loginUser=(email,password,history,location)=>{
+    const loginUser=(email,password,location, history)=>{
       setIsLoading(true)
         signInWithEmailAndPassword(auth, email, password)
   .then((user) => {
@@ -113,16 +115,17 @@ const useFirebase=()=>{
     }
     const saveUser=(email,displayName)=>{
       const user={email,displayName}
-      fetch('https://shrouded-crag-83318.herokuapp.com/users',{
+      console.log(user);
+      fetch('https://diamond-would-server-side.onrender.com/users',{
         method:'POST',
         headers:{
-          'contain-type':'application/json'
+          'content-type':'application/json'
         },
         body:JSON.stringify(user)
-        
-        
       })
-      .then()
+      .then(res => res.json())
+      .then(data => {console.log(data)
+      })
     }
     return{
         user,
@@ -131,7 +134,8 @@ const useFirebase=()=>{
         registerUser,
         loginUser,
         logOut,
-        signInWthGoogle
+        signInWthGoogle,
+        everyUser
         
     }
 }

@@ -15,7 +15,7 @@ const Reviews = () => {
     /* console.log(review) */
     return (
         <Box sx={{backgroundColor:'#f9f9f9',}}>
-            <Typography variant="h4" color="text.dark" sx={{marginTop:"30px"}}>
+            <Typography variant="h4" color="text.dark" sx={{marginY:"30px"}}>
                 Review
             </Typography>
             <Box sx={{width:'150px',marginLeft:'42.5%',mb:3}}>
@@ -31,15 +31,15 @@ const Reviews = () => {
                         
                 {
                     review.map(product=><Grid item xs={12} md={4} key={product._id}>
-                        <Card sx={{marginTop:'10%' ,backgroundColor:'#535b5ecc',marginBottom:"20px",hight:"250px"}}>
+                        <Card sx={{marginTop:'10%' ,backgroundColor:'',marginBottom:"20px"}} >
                             
                             
-                            <CardContent sx={{color:'#d2aa5c'}}>
+                            <CardContent  >
                                 <Typography variant="body2" >
-                               <span >User Name</span>: {product?.userName}
+                               <span  >User Name</span>: {product?.userName}
                                 </Typography>
                                 <Typography variant="body2">
-                                <span>Product Name</span>: {product?.product}
+                                <span >Product Name</span>: {product?.product}
                                 </Typography>
                             </CardContent>
                             

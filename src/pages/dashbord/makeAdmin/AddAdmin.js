@@ -4,21 +4,6 @@ import React, { useState } from 'react';
 
 const AddAdmin = () => {
 
-<<<<<<< HEAD
-        const field=e.target.name;
-        const value=e.target.value;
-        console.log(field,value)
-        const newUserInfo={...loginData}
-        newUserInfo[field]=value;
-        setLoginData(newUserInfo)
-        }
-        /* onSubmit function */
-        const handleLogIn=(e)=>{
-             axios.post('https://diamond-would-server-side.onrender.com/users')
-        .then(result=>{
-            if(result){
-                alert("you are successfully add Admin")
-=======
     const [email,setEmail]=useState('');
     const [success,setSuccess]=useState(false)
 
@@ -31,7 +16,7 @@ const AddAdmin = () => {
         /* onSubmit client site admin */
         const handleAddAdmin=(e)=>{
             const user={email}
-            fetch('https://shrouded-crag-83318.herokuapp.com/users/admin',{
+            fetch('https://diamond-would-server-side.onrender.com/users/admin',{
                 method:'PUT',
                 headers:{
                   'content-type':'application/json'
@@ -46,7 +31,6 @@ const AddAdmin = () => {
                 setSuccess(true)
                 console.log(data)
                 setEmail('')
->>>>>>> 3e971609553fa533d4df3f346ae0db3ca75def0c
             }
            
             

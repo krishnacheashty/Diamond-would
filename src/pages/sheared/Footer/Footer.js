@@ -6,9 +6,9 @@ import Typography from '@mui/material/Typography';
 const Footer = () => {
     return (
         <>
-            <Box sx={{backgroundColor:'rgba(0, 0, 0, 0.88)',color:'white', marginTop:'5%'}}>
-                <Grid container spacing={2}>
-                    <Grid item xs={6} md={3}>
+            <Box sx={{backgroundColor:'rgba(0, 0, 0, 0.88)',color:'white', marginTop:'10%'}} marginBottom={4} borderRadius={2}>
+                <Grid container spacing={2} paddingY={7}>
+                    <Grid item xs={6} md={3} >
                         <Box sx={{marginTop:"20%"}}>
                             <Typography variant='h6'>Diamond house</Typography>
                             <Typography variant='p'>visit our show room</Typography>

@@ -96,11 +96,7 @@ const Login = () => {
                             error && <Alert severity="error">{error}</Alert>
                         }
                         </form>
-<<<<<<< HEAD
-                        <Button onClick={()=>handelGoogleSignIn(location, history)} variant='contained' sx={{marginBottom:'10px'}} > Google sign in</Button>
-=======
                         <Button onClick={()=>handelGoogleSignIn(location,history)} variant='contained' sx={{marginBottom:'10px'}} > Google sign in</Button>
->>>>>>> 3e971609553fa533d4df3f346ae0db3ca75def0c
                     </Box>
                 </Grid>
 

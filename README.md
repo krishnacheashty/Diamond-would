@@ -2,7 +2,8 @@
 
 
 This is my project liveSide [link](https://diamond-house-1024c.web.app/).
-
+For admi login opera123@gmail.com 
+password opera123
 
 ## DIAMOND-HOUSE
 
@@ -16,6 +17,7 @@ In the project we try to show Diamond neckless related  things.
  This side mainly focused in Diamond neckless Related.Here you can order various Diamond Neckless set .
 
  ### SOME POINTS 
+ -only admin can access all dashbord.
 
  -Built Firebase Authentication system with email, password, and google login for users and admin. 
 
